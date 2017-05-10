@@ -9,21 +9,29 @@ const db = require("../models");
 module.exports = function(app) {
 
     //Get route fro getting all of the burgers
-    app.get("/api/burgers", function(req, res) {
-        db.Burger.findAll({}).then(function(dbBurger) {
-            res.json(dbBurger);
-        });
+    app.get("/", function(req, res) {
+        db.Burger.findAll({})
+            .then(function(data) {
+                res.render("index", { Burger: data });
+            });
     });
 
     //POST route for saving a new burger
-    app.post("/api/burgers", function(req, res) {
+    app.post("/index", function(req, res) {
         db.Burger.create({
-            burger_name: req.body.burger_name,
-            devoured: false
+            burger_name: req.body.burger_type,
         }).then(function(dbBurger) {
-            res.json(dbBurger);
+            res.redirect("/");
         });
     });
+
+    //app.post('/index', function(req, res) {
+    //    db.Burger.create({
+    //        burger_name: req.body.burger_name
+    //    }).then(function (results) {
+    //        res.redirect('/index');
+    //    });
+    //});
 
     //DELETE route for deleting burgers
     app.delete("/api/burgers/:id", function(req, res) {
