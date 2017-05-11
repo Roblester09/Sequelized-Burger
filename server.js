@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 8080;
 const db = require("./models");
 
 //Serve static content for the app from the "public" directory in the application directory
-app.use(express.static("./public"));
+app.use(express.static(__dirname + "./public"));
 // enable method override
 app.use(methodOverride("_method"));
 
@@ -32,7 +32,7 @@ require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
 //Start server listening
-db.sequelize.sync({ }).then(function() {
+db.sequelize.sync().then(function() {
     app.listen(PORT, function(){
         console.log(`App listening on PORT ` + PORT);
     });
