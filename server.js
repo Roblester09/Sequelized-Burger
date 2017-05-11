@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 8080;
 const db = require("./models");
 
 //Serve static content for the app from the "public" directory in the application directory
-app.use(express.static(__dirname + "./public"));
+app.use(express.static("./public"));
 // enable method override
 app.use(methodOverride("_method"));
 
