@@ -11,13 +11,13 @@ You can deploy your own version of Burgertime by following these steps:
 > 2. Navigate to the main BurgerTime folder
 > 3. Install dependency packages `npm install`
 > 4. Fire up MySQL in your terminal with `mysql -u root`
-> 6. Create a database named 'bt2_db' by typing   `CREATE DATABASE burgers_db`
+> 6. Create a database named 'burgers_db' by typing   `CREATE DATABASE burgers_db`
 > 7. Then run the database by typing `USE burgers_db`
 > 8. Quit mysql by typing `quit`
 > 9. Navigate to the main BurgerTime folder
 > 10. Then type `node server.js` to run
 > 11. Open your broswer and navigate to `localhost:8080/index`
-> 12. Enjoy your tasty Burger...YUM!
+> 12. Enjoy your tasty Burger!
 
 #### Assignment
 
