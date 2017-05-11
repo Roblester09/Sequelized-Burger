@@ -8,52 +8,52 @@ const db = require("../models");
 // =============================================================
 module.exports = function(app) {
 
-    //Get route fro getting all of the burgers
-    app.get("/", function(req, res) {
+    //Get route for getting all of the burgers
+    app.get("/index", function(req, res) {
         db.Burger.findAll({})
             .then(function(data) {
-                res.render("index", { Burger: data });
+                //console.log(data);
+                const hbsObject = {
+                    foobar: data
+                };
+                //console.log(hbsObject);
+                res.render("index", hbsObject);
             });
     });
 
     //POST route for saving a new burger
     app.post("/index", function(req, res) {
+        //console.log(req.body);
         db.Burger.create({
-            burger_name: req.body.burger_type,
-        }).then(function(dbBurger) {
-            res.redirect("/");
-        });
-    });
-
-    //app.post('/index', function(req, res) {
-    //    db.Burger.create({
-    //        burger_name: req.body.burger_name
-    //    }).then(function (results) {
-    //        res.redirect('/index');
-    //    });
-    //});
-
-    //DELETE route for deleting burgers
-    app.delete("/api/burgers/:id", function(req, res) {
-        db.Burger.destroy({
-            where: {
-                id: req.params.id
-            }
-        }).then(function(dbBurger) {
-            res.json(dbBurger);
+            burger_name: req.body.name,
+        }).then(function() {
+            //console.log(dbBurger);
+            res.redirect("/index");
+            //res.json(dbBurger);
         });
     });
 
     //PUT route for updating burgers
-    app.put("/api/burgers", function(req, res) {
+    app.put("/:id", function(req, res) {
         db.Burger.update({
-            burger_name: req.body.burger_name
+            devoured: true
         }, {
             where: {
-                id: req.body.id
+                id: req.params.id
             }
-        }).then(function(dbBurger) {
-            res.json(dbBurger);
+        }).then(function() {
+            res.redirect("/index");
+        });
+    });
+
+    //DELETE route for deleting burgers
+    app.delete("/:id", function(req, res) {
+        db.Burger.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(function() {
+            res.redirect("/index");
         });
     });
 };

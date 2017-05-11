@@ -2,7 +2,7 @@
     <h3>Create a new burger</h3>
     <form class="form-inline" action="/index" method="POST">
         <div class="form-group">
-            <input type="text" class="form-control" name="burger_type" placeholder="Enter burger type">
+            <input type="text" class="form-control" name="name" placeholder="Enter burger type">
         </div>
         <button type="submit" class="btn btn-default">Submit Burger</button>
     </form>
@@ -10,12 +10,12 @@
 
 <div class="row">
     <div class="col-md-3 col-md-offset-2">
-        {{#each burger}}
+        {{#each foobar}}
             {{#unless this.devoured}}
                 <div class="well text-center">
                     <h4>{{this.burger_name}}</h4>
                     <div>
-                        <form action="/update/{{this.id}}" method="POST">
+                        <form action="/{{this.id}}?_method=PUT" method="POST">
                             <button type="submit" class="btn btn-warning">Eat Burger</button>
                         </form>
                     </div>
@@ -25,12 +25,12 @@
     </div>
     <div class="col-md-2"></div>
     <div class="col-md-3">
-        {{#each burger}}
+        {{#each foobar}}
             {{#if this.devoured}}
                 <div class="well text-center">
                     <h4>{{this.burger_name}}</h4>
                     <div>
-                        <form action="/delete/{{this.id}}" method="POST">
+                        <form action="/{{this.id}}?_method=DELETE" method="POST">
                             <button type="submit" class="btn btn-danger">Clean Up</button>
                         </form>
                     </div>
