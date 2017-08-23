@@ -1,6 +1,6 @@
 # [BurgerTime 2.0 (Sequelize)](https://obscure-plains-15118.herokuapp.com/)
 
-*Still Nothing to install. Still Nothing to run.  But, this time we got a new cook in the kitchen named Sequelize - and he's so much easier to manage than that last guy. Give 'em a try. C'mon back down to [BurgerTime](https://obscure-plains-15118.herokuapp.com/), and we'll make your burger to order.
+*Still Nothing to install. Still Nothing to run.  But, this time we got a new cook in the kitchen named Sequelize - and he's so much easier to manage than that last guy. Give 'em a try. C'mon back down to [BurgerTime](https://sequelized-burgers.herokuapp.com/), and we'll make your burger to order.
 <br>
 ### BurgerTime is a full stack app utilizing Node, Express, **Sequelize** and Handlebars.
 ---
